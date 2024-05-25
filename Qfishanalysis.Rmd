@@ -1,0 +1,115 @@
+---
+title: "QFish"
+author: "Ellana Pierce"
+date: "2024-05-17"
+output: html_document
+---
+
+
+Part 1: Obtaining data 
+```{r QFish}
+# setwd("/Users/ellanapierce/Desktop/Data_Science/QFish_Project/CommercialLineFish")
+getwd()
+Fish <- read.csv("CommercialLineFish.csv")
+```
+
+```{r Check File}
+file.exists("/Users/ellanapierce/Desktop/Data_Science/QFish_Project/CommercialLineFish.csv") 
+#False return, then TRUE return, now that i have fixed the wording/path errors.
+```
+
+
+I have chosen the data I want to use from the Qfish website and data set, exported it to csv from download in excel, and saved to my new WD that is connected to my GitHub repository.
+I have also called the data to an object called Fish, so it's easier for analysis than typing the full name each time. 
+
+Let's have a look at the data, to makesure it's come into R and looks right.
+```{r Check the data}
+view(Fish)
+
+
+
+
+
+
+# Plot 1: Bar Plot of Total Licences per Year
+ggplot(data = Fish_clean, aes(x = Year, y = Licences)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Number of Total Licences Per Year", x = "Year", y = "Total Licences") +
+  theme_minimal()
+
+
+
+```
+Looks good!
+
+Part 2: Tidying the Data
+```{r Packages}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+
+```{r Packages}
+# Load necessary libraries
+# Load necessary libraries
+library(ggplot2)
+install.packages("dplyr")
+library(dplyr)
+
+# Convert Year, Licences, Days, and Tonnes columns to numeric
+Fish$Year <- as.character(Fish$Year)
+Fish$Licences <- as.numeric(Fish$Licences)
+Fish$Days <- as.numeric(Fish$Days)
+Fish$Tonnes <- as.numeric(gsub(",", "", Fish$Tonnes))  # Remove commas before converting to numeric
+
+# Verify the changes
+str(Fish)
+
+# Print summary to check data types
+str(Fish)
+summary(Fish_clean)
+```
+I've downloaded the package I need for making and editing my plots. 
+
+I have tidied my data in R as needed prior, just out of habit and not wanting to double handle.
+
+Checking for missing values... allgood. I will run the function na.omit ust in case I missed a missing val!
+```{r Check for missing}
+summary(Fish)
+```
+
+```{r Converting my data as needed}
+library(ggplot2)
+
+# Convert Year and Tonnes columns to numeric if not already done
+Fish$Year <- as.numeric(Fish$Year)
+Fish$Tonnes <- as.numeric(gsub(",", "", Fish$Tonnes))  # Remove commas before converting to numeric
+
+# Create the plot with customised colors, background, legend, and grey grid lines
+ggplot(Fish, aes(x = Year, y = Tonnes, fill = "Tonnes")) +
+  geom_bar(stat = "identity", color = "navy", fill = "grey", size = 0.5) +  # Thinner navy border
+  labs(x = "Year", y = "Tonnes") +  # Removed the title here
+  scale_x_continuous(breaks = Fish$Year) +
+  theme(axis.title = element_text(size = 14, face = "bold"),  # Increase font size for axis titles
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, size = 10),  # Increase font size for x-axis labels
+        axis.text.y = element_text(size = 10),  # Increase font size for y-axis labels
+        panel.background = element_rect(fill = "white", color = "black"),  # Set white background with black border
+        panel.grid.major = element_line(color = "grey"),  # Add grey major grid lines
+        legend.position = "top",  # Position the legend at the top
+        legend.title = element_blank(),  # Remove legend title
+        legend.key = element_rect(fill = "lightblue", color = "black")) +  # Customize legend key
+  guides(fill = guide_legend(title = "Legend"))  # Add legend title
+```
+
+Let's have a looksie at how we can plot this data in different ways.
+```{r Line Plot}
+ggplot(data = Fish, aes(x = Year, y = Tonnes)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Total Tonnes Over the Years", x = "Year", y = "Tonnes")
+
+```
+
+Part 3: Add your plot and markdown report to e-portfolio
+
+
