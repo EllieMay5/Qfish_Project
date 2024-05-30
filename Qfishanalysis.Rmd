@@ -101,12 +101,35 @@ ggplot(Fish, aes(x = Year, y = Tonnes, fill = "Tonnes")) +
   guides(fill = guide_legend(title = "Legend"))  # Add legend title
 ```
 
+Plot interpretation: Having a look at my plot, I can see the time series shows a few things. Firstly, there is an overall increase in catches from 1990 to the early 2000's. This increase, after peaking prior to 2003, begins a downwards trend with the catch per year decreasing uniformly for the next approx 20 years until present time. I believe the climb then decline in the catch tonnes per year, could be for a few different reasons.
+
+- Firstly, the intense fishing pressures of the initial years prior to 2000, could have led to a depletion in the populations of the fisheries targeted species. This hypothesis, also relates to the possibly disruption of the dynamic marine ecosystems in general, when these larger predatory fish are removed - then leading to changes in the overall fish population, their role in the ecosystem and food web. 
+
+- Secondly, it could be due to the changes in regulation and management of fishing areas and practices. The conservation and protection of marine areas in particular, has grown immensely over the past 25 years. Efforts like Marine Protected Areas (MPA) of different levels which can introduce the restrictions around certain gear, fishing practices, amounts or species taken and more. This has all become an absolute necessity in especially the past 15 years, with many populations in decline and fisheries history showing the impacts of over fishing and the vital need for certain implementations to allow targeted fish stocks to recover. These can be introduced as quotas, seasonal restrictions (breeding/size LHS related to sp.), and like mentioned earlier - MPA's/
+
+- Thirdly, in conjunction with the past two hypothesis, the gear advancements that have occurred over this time frame, has meant that more selective fishing have taken over from destructive methods like longline fishing, in turn reducing bycatch and paving the way (slowly) for more sustainable fishing practices! Furthermore, technilogical advancements have also allowed for better practice, mitigation of bycatch, and more selective practices for commercial fishing along with the massive growth of aquaculture and in particular, onland aquaculture too!
+
+- Lastly, to add to the previous points - Globally and especially in more westernised cultures like Aus and USA, many people are becoming increasingly concerned about the practices, degredation, proccessing and many other factors of how things end up on their plate. This change in consumerism can also heavily impact the market value of targeted species and encourages large corporations and commercial fishing companies to move towards more sustainable and long-term practices that align with their customers needs. 
+
+Figure 1. Annual catch (in tonnes) from 1990 to 2023. The data shows an increasing trend in catch until the early 2000s, followed by a significant decline. This trend reflects the depletion of fish populations due to overfishing and the subsequent implementation of stricter fishery management practices and a shift towards more selective fishing methods.
+
+
+
+
+Optional extra:
 Let's have a looksie at how we can plot this data in different ways.
 ```{r Line Plot}
 ggplot(data = Fish, aes(x = Year, y = Tonnes)) +
   geom_line() +
   geom_point() +
   labs(title = "Total Tonnes Over the Years", x = "Year", y = "Tonnes")
+
+```
+
+
+
+```{r}
+git add
 
 ```
 
