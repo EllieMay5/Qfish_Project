@@ -1,13 +1,14 @@
 ---
 title: "QFishAnalysis_Assessment.Rmd"
-author: "Ellana Pierce"
-date: "2024-05-17"
+author: "Ellana Pierce (El)"
+date: "2024-05-30"
 output: html_document
 ---
 
+
 Part 1: Obtaining data 
 ```{r QFish}
-# setwd("/Users/ellanapierce/Desktop/Data_Science/QFish_Project/CommercialLineFish")
+# setwd("/Users/ellanapierce/Desktop/Data_Science/QFish_Project/")
 getwd()
 Fish <- read.csv("CommercialLineFish.csv")
 ```
