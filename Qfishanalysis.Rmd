@@ -26,18 +26,11 @@ Let's have a look at the data, to makesure it's come into R and looks right.
 ```{r Check the data}
 view(Fish)
 
-
-
-
-
-
 # Plot 1: Bar Plot of Total Licences per Year
 ggplot(data = Fish_clean, aes(x = Year, y = Licences)) +
   geom_bar(stat = "identity") +
   labs(title = "Number of Total Licences Per Year", x = "Year", y = "Total Licences") +
   theme_minimal()
-
-
 
 ```
 Looks good!
